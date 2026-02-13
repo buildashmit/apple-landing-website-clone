@@ -380,6 +380,10 @@ body {
 
           p {
             @apply font-semibold lg:text-2xl 2xl:text-3xl;
+            font-size: 30px;
+            /* Added text-base for mobile (default size) */
+            /* word-wrap: break-word; */
+            /* overflow-wrap: break-word; */
 
             span {
               background: linear-gradient(

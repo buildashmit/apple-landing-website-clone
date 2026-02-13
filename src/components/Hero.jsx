@@ -19,7 +19,7 @@ return (
         <video ref={videoRef} src="/videos/hero.mp4" autoPlay muted playsInline />
 
         <button>Buy</button>
-        <p>From &#x20B9;1,20,000 or &#x20B9;6000 for 12 months</p>
+        <p>From &#x20B9;1,199,990 or &#x20B9;5999/mo for 24 months</p>
     </section>
   )
 }
