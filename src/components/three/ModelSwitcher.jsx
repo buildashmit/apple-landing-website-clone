@@ -5,6 +5,8 @@ import MacbookModel16 from "../models/Macbook-16";
 import MacbookModel14 from "../models/Macbook-14";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
+import { useGesture } from "@use-gesture/react";
+
 
 const ANIMATION_DURATION = 1;
 const OFFSET_DISTANCE =5;
@@ -37,6 +39,11 @@ const ModelSwitcher = ({scale, isMobile}) => {
 
     const smallMacbookRef = useRef();
     const largeMacbookRef = useRef();
+    //const groupRef = useRef();
+
+    //console.log('ModelSwitcher rendered, isMobile:', isMobile);
+
+    //const [rotation, setRotation] = useState({ x: 0, y: 0 });
 
     const showLargeMacbook = scale === SCALE_LARGE_DESKTOP || scale === SCALE_LARGE_MOBILE;
 
@@ -55,6 +62,26 @@ const ModelSwitcher = ({scale, isMobile}) => {
         fadeMeshes(largeMacbookRef.current, 0);
         }
     }, [scale])
+
+    /*const bind = useGesture({
+        onDrag: ({ offset: [x, y] }) => {
+            console.log('Drag detected:', { x, y, isMobile });
+            if (isMobile && groupRef.current) {
+                console.log('Applying rotation');
+                const newRotationY = x * 0.01;
+                const newRotationX = -y * 0.01;
+
+                setRotation({ x: newRotationX, y: newRotationY });
+
+                gsap.to(groupRef.current.rotation, {
+                    y: newRotationY,
+                    x: newRotationX,
+                    duration: 0.3
+                });
+            }
+        }
+    });*/
+
 
     const controlsConfig = {
         snap: true,

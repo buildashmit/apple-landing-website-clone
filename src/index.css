@@ -46,13 +46,14 @@
 }
 
 html {
-  width: 100vw;
+  width: 100%;
+  /* overflow-y: scroll; */
   overflow-x: hidden;
   scroll-behavior: smooth;
 }
 
 body {
-  width: 100vw;
+  width: 100%;
   overflow-x: hidden;
   background-color: #000;
   color: var(--color-dark-100);
@@ -89,10 +90,12 @@ body {
 
 @layer components {
   header {
-    @apply w-screen fixed top-0 left-0 z-50 flex-center bg-black min-h-[7vh];
+    @apply w-full fixed top-0 left-0 z-50 flex-center bg-black min-h-[7vh];
 
     nav {
       @apply container mx-auto flex-between px-5 2xl:px-0;
+      /* width: 100%;
+      max-width: 100%; */
 
       img {
         @apply cursor-pointer hover:-translate-y-0.5 transition-all duration-300 ease-in-out;
@@ -122,6 +125,18 @@ body {
         @apply font-semibold lg:text-3xl 2xl:text-5xl text-white;
       }
 
+      /* Chrome-specific fix */
+      /* @supports (-webkit-appearance: none) {
+        h1 {
+          @apply lg:text-2xl 2xl:text-4xl;
+        }
+      } */
+      /* Chrome only - using Chrome's specific rendering */
+      /* _::-webkit-outer-scroll-bar,
+      h1 {
+        @apply lg:text-2xl 2xl:text-4xl;
+      } */
+
       img {
         @apply container mx-auto w-2/3;
       }
@@ -144,7 +159,7 @@ body {
     @apply container relative min-h-[93vh] mx-auto px-5 2xl:px-0 mt-40;
 
     h2 {
-      @apply text-white font-semibold text-3xl lg:text-6xl;
+      @apply text-white font-semibold text-3xl lg:text-6xl text-center mx-auto;
     }
 
     .controls {
